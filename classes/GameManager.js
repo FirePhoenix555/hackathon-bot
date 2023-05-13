@@ -29,7 +29,8 @@ module.exports = class GameManager {
 
     getGameFromPlayer(player) {
         for (let i = 0; i < this.games.length; i++) {
-            if (this.games[i].hasPlayer(player)) return this.games[i];
+            let game = this.games[i];
+            if (game.hasPlayer(player) && !game.finished) return game;
         }
         return null;
     }

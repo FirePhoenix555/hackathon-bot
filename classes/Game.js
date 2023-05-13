@@ -2,6 +2,7 @@ module.exports = class Game {
     constructor() {
         this.player1 = null;
         this.player2 = null;
+        this.finished = false;
 
         this.board = [];
         for (let i = 0; i < 3; i++) {
@@ -15,11 +16,13 @@ module.exports = class Game {
     }
 
     addPlayer(player) {
+        if (this.finished) return;
         if (!this.player1) this.player1 = player;
         else if (!this.player2) this.player2 = player;
     }
 
     move(player, position) {
+        if (this.finished) return;
         let current = this.board[position.i][position.j];
         if (current != 0) return;
         // console.log(this.turn, this.board, this.player1, this.player2, player)
@@ -39,7 +42,6 @@ module.exports = class Game {
     }
 
     checkWin() {
-
         let b = this.board;
 
         let top = b[0][0] && (b[0][0] == b[1][0] && b[1][0] == b[2][0]);
@@ -59,6 +61,8 @@ module.exports = class Game {
             if (top || lef || di1) player = b[0][0];
             else if (mdh || mdv || di2) player = b[1][1];
             else if (bot || rig) player = b[2][2];
+
+            this.finished = true;
 
             return player;
 
