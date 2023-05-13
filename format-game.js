@@ -4,12 +4,12 @@ module.exports = function formatGame(board) {
     for (let j = 0; j < board[0].length; j++) {
         for (let i = 0; i < board.length; i++) {
             let tile = board[i][j];
-            if (tile == 1) t += "[X] ";
-            else if (tile == 2) t += "[O] ";
-            else if (tile == 0) t += "[ ] ";
+            if (tile == 1) t += "[X] "; // if player 1's tile, add X
+            else if (tile == 2) t += "[O] "; // if player 2's tile, add O
+            else if (tile == 0) t += "[ ] "; // if empty, add (space)
         }
-        t += "\n";
+        t += "\n"; // separate rows with new line
     }
     
-    return "`" + t + "`";
+    return "`" + t + "`"; // turn to monospace
 }

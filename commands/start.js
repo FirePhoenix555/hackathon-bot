@@ -9,11 +9,11 @@ module.exports = {
         .setName('start')
         .setDescription('Starts a new game.')
         ,
-    async execute(interaction) {
+    async execute(interaction) { // called on /start
         let user = interaction.user;
-        let { num, game } = gm.addGame(user);
+        let { num, game } = gm.addGame(user); // add a new game
 
-        let embed = new Discord.EmbedBuilder()
+        let embed = new Discord.EmbedBuilder() // and reply with game state
             .setTitle("Game " + num)
             .setDescription(`Player1 (X): <@${(game.player1 || {id:"null"}).id}>; Player2 (O): <@${(game.player2 || {id:"null"}).id}>`)
             .addFields(

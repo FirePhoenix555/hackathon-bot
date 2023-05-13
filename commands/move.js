@@ -19,29 +19,28 @@ module.exports = {
                 .setRequired(true)
         )
         ,
-    async execute(interaction) {
-
-
+    async execute(interaction) { // called on /move
         let user = interaction.user;
 
-        let pos = {
+        let pos = { // the position they place a tile at
             i: interaction.options.get("x-pos").value,
             j: interaction.options.get("y-pos").value
         };
 
-        if (pos.i < 0 || pos.i > 2 || pos.j < 0 || pos.j > 2) {
+        if (pos.i < 0 || pos.i > 2 || pos.j < 0 || pos.j > 2) { // index too high / low
             await interaction.reply("Invalid index");
             return;
         }
 
         let res = gm.move(user, pos);
         if (!res) {
-            await interaction.reply("Failed to move there. Try again.");
+            await interaction.reply("Failed to move there. Try again."); // eg there's already something there
             return;
         }
 
         let game = gm.getGameFromPlayer(user);
 
+        // reply with game state
         let embed = new Discord.EmbedBuilder()
             .setTitle("Game " + gm.games.indexOf(game))
             .setDescription(`Player1 (X): <@${(game.player1 || {id:"null"}).id}>; Player2 (O): <@${(game.player2 || {id:"null"}).id}>`)
