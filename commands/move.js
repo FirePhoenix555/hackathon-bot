@@ -36,7 +36,7 @@ module.exports = {
 
         let res = gm.move(user, pos);
         if (!res) {
-            await interaction.reply("oops");
+            await interaction.reply("Failed to move there. Try again.");
             return;
         }
 
