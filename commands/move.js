@@ -44,7 +44,7 @@ module.exports = {
 
         let embed = new Discord.EmbedBuilder()
             .setTitle("Game " + gm.games.indexOf(game))
-            .setDescription("(players)")
+            .setDescription(`Player1 (X): <@${(game.player1 || {id:"null"}).id}>; Player2 (O): <@${(game.player2 || {id:"null"}).id}>`)
 
         let r = game.checkWin();
         if (r > 0) {
@@ -57,7 +57,7 @@ module.exports = {
             );
         } else {
             embed.addFields(
-                { name: "Game state", value: formatGame(game.board) }
+                { name: "Game state", value: "Current player: " + game.turn + "\n" + formatGame(game.board) }
             );
         }
 

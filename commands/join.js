@@ -29,9 +29,9 @@ module.exports = {
 
         let embed = new Discord.EmbedBuilder()
             .setTitle("Game " + gi)
-            .setDescription("(players)")
+            .setDescription(`Player1 (X): <@${(game.player1 || {id:"null"}).id}>; Player2 (O): <@${(game.player2 || {id:"null"}).id}>`)
             .addFields(
-                { name: "Game state", value: formatGame(game.board) }
+                { name: "Game state", value: "Current player: " + game.turn + "\n" + formatGame(game.board) }
             )
             ;
 
