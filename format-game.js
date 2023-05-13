@@ -11,5 +11,5 @@ module.exports = function formatGame(board) {
         t += "\n";
     }
     
-    return t;
+    return "`" + t + "`";
 }
