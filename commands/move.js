@@ -49,15 +49,15 @@ module.exports = {
         let r = game.checkWin();
         if (r > 0) {
             embed.addFields(
-                { name: "Game state", value: "Winner: player " + r}
+                { name: "Game state", value: "Winner: player " + r +"\n" + formatGame(game.board)}
             )
         } else if (r < 0) {
             embed.addFields(
-                { name: "Game state", value: formatGame(game.board) }
+                { name: "Game state", value: "Tie game!\n" + formatGame(game.board) }
             );
         } else {
             embed.addFields(
-                { name: "Game state", value: "Tie game!" }
+                { name: "Game state", value: formatGame(game.board) }
             );
         }
 

@@ -31,7 +31,7 @@ module.exports = class Game {
             this.turn = 1;
         }
 
-        
+        return 1;
     }
 
     hasPlayer(player) {
@@ -42,16 +42,16 @@ module.exports = class Game {
 
         let b = this.board;
 
-        let top = b[0][0] && (b[0][0] == b[1][0] == b[2][0]);
-        let mdh = b[0][1] && (b[0][1] == b[1][1] == b[2][1]); // mid horizontal
-        let bot = b[0][2] && (b[0][2] == b[1][2] == b[2][2]);
+        let top = b[0][0] && (b[0][0] == b[1][0] && b[1][0] == b[2][0]);
+        let mdh = b[0][1] && (b[0][1] == b[1][1] && b[1][1] == b[2][1]); // mid horizontal
+        let bot = b[0][2] && (b[0][2] == b[1][2] && b[1][2] == b[2][2]);
 
-        let lef = b[0][0] && (b[0][0] == b[0][1] == b[0][2]);
-        let mdv = b[1][0] && (b[1][0] == b[1][1] == b[1][2]); // mid vertical
-        let rig = b[2][0] && (b[2][0] == b[2][1] == b[2][2]);
+        let lef = b[0][0] && (b[0][0] == b[0][1] && b[0][1] == b[0][2]);
+        let mdv = b[1][0] && (b[1][0] == b[1][1] && b[1][1] == b[1][2]); // mid vertical
+        let rig = b[2][0] && (b[2][0] == b[2][1] && b[2][1] == b[2][2]);
 
-        let di1 = b[0][0] && (b[0][0] == b[1][1] == b[2][2]); // diagonal 1
-        let di2 = b[2][0] && (b[2][0] == b[1][1] == b[0][2]); // diagonal 2
+        let di1 = b[0][0] && (b[0][0] == b[1][1] && b[1][1] == b[2][2]); // diagonal 1
+        let di2 = b[2][0] && (b[2][0] == b[1][1] && b[1][1] == b[0][2]); // diagonal 2
 
         if (top || mdh || bot || lef || mdv || rig || di1 || di2) {
             

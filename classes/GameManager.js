@@ -18,8 +18,7 @@ module.exports = class GameManager {
     move(player, position) {
         let game = this.getGameFromPlayer(player);
         if (game) {
-            game.move(player, position);
-            return 1;
+            return game.move(player, position);
         }
         else return 0;
     }
