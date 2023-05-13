@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const { genCommands } = require('./commands-util.js');
 
-require("dotenv");
+require("dotenv").config();
 
 let commands = [];
 genCommands(cmd => {
@@ -16,7 +16,7 @@ const rest = new Discord.REST({ version: '10' }).setToken(process.env.TOKEN);
 		console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
 		const data = await rest.put(
-			Discord.Routes.applicationCommands(clientId),
+			Discord.Routes.applicationCommands(process.env.CLIENTID),
 			{ body: commands },
 		);
 

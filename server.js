@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-require("dotenv");
+require("dotenv").config();
 const { genCommands } = require('./commands-util.js');
 require("./register-commands.js");
 
@@ -35,7 +35,7 @@ client.on(Discord.Events.InteractionCreate, async interaction => {
 		console.error(`No command matching ${interaction.commandName} was found.`);
 		return;
 	}
-    
+
 	try {
 		let res = await command.execute(interaction);
         if (res) { // error
