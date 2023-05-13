@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-const gm = require("../game-manager.js");
+const gm = require("../classes/GameManager.js");
 
 const formatGame = require("../format-game.js");
 

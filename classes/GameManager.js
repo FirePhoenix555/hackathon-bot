@@ -1,6 +1,6 @@
 const Game = require("./Game.js");
 
-module.exports = class GameManager {
+class GameManager {
     constructor() {
         this.games = [];
     }
@@ -35,3 +35,6 @@ module.exports = class GameManager {
         return null;
     }
 }
+
+const gm = new GameManager();
+module.exports = gm;

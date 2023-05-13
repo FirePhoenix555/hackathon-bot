@@ -25,7 +25,7 @@ module.exports = class Game {
         if (this.finished) return;
         let current = this.board[position.i][position.j];
         if (current != 0) return;
-        // console.log(this.turn, this.board, this.player1, this.player2, player)
+        
         if (player == this.player1 && this.turn == 1) {
             this.board[position.i][position.j] = 1;
             this.turn = 2;

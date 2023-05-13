@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-const gm = require("../game-manager.js");
+const gm = require("../classes/GameManager.js");
 
 const formatGame = require("../format-game.js");
 
@@ -10,12 +10,8 @@ module.exports = {
         .setDescription('Starts a new game.')
         ,
     async execute(interaction) {
-
-
         let user = interaction.user;
-
         let { num, game } = gm.addGame(user);
-
 
         let embed = new Discord.EmbedBuilder()
             .setTitle("Game " + num)
